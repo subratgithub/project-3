@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds') // Docker Hub creds
-        IMAGE_NAME = 'satya44jit/testing-app'
+        IMAGE_NAME = 'satya44jit/httpd-app'
         REMOTE_HOST = 'ec2-user@35.154.15.34'
-        REMOTE_APP_NAME = 'testing-app'
+        REMOTE_APP_NAME = 'httpd-app'
     }
 
     stages {
