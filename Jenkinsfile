@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds') // Docker Hub creds
         IMAGE_NAME = 'techsubrat07/jenkins_dockerapp'
         REMOTE_HOST = 'ec2-user@172-31-29-178'
-        REMOTE_APP_NAME = 'httpd-app'
+        REMOTE_APP_NAME = 'jenkins_dockerapp'
     }
 
     stages {
