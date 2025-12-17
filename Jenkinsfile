@@ -3,15 +3,15 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds') // Docker Hub creds
-        IMAGE_NAME = 'satya44jit/httpd-app'
-        REMOTE_HOST = 'ec2-user@35.154.15.34'
+        IMAGE_NAME = 'techsubrat07/jenkins_dockerapp'
+        REMOTE_HOST = 'ec2-user@172-31-29-178'
         REMOTE_APP_NAME = 'httpd-app'
     }
 
     stages {
         stage('Checkout from GitHub') {
             steps {
-                git branch: 'main', url: 'https://github.com/chinabudhi123/project-3.git'
+                git branch: 'main', url: 'https://github.com/subratgithub/project-3.git'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ssh-access-key']) {  // <-- Updated with correct EC2 key ID
+                sshagent(['ssh_access_key']) {  // <-- Updated with correct EC2 key ID
                     sh """
                         ssh -o StrictHostKeyChecking=no $REMOTE_HOST '
                             docker pull $IMAGE_NAME:latest &&
