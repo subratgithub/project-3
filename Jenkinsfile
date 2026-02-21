@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds') // Docker Hub creds
+        DOCKERHUB_CREDENTIALS = credentials('docker-cred') // Docker Hub creds
         IMAGE_NAME = 'techsubrat07/jenkins_dockerapp'
-        REMOTE_HOST = 'ec2-user@204.236.198.165'
+        REMOTE_HOST = 'ec2-user@52.90.133.202'
         REMOTE_APP_NAME = 'jenkins_dockerapp'
     }
 
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ssh_access_key']) {  // <-- Updated with correct EC2 key ID
+                sshagent(['ssh-acceskey']) {  // <-- Updated with correct EC2 key ID
                     sh """
                         ssh -o StrictHostKeyChecking=no $REMOTE_HOST '
                             docker pull $IMAGE_NAME:latest &&
